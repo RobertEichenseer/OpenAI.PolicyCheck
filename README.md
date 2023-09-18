@@ -75,7 +75,22 @@ By analyzing the above results a solid indication if the policy was respected ca
 
 ### Sample
 
-- Start the asp.net server by pressing F5 (VSCode/Visual Studio) or execute `dotnet build` in the [project folder](./src/PolicyServer/)
+- Start the asp.net server by pressing F5 (VSCode/Visual Studio) or execute `dotnet build` in the [project folder](./src/PolicyServer/). Please provide your Azure OpenAI API key, Azure OpenAI endpoint and embedding deployment name in [appsettings.json](./src/PolicyServer/appsettings.json)
+```dotnetcli
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+  "PCheck_AOAI_APIKEY": "<<your api key>", 
+  "PCheck_AOAI_ENDPOINT": "<<your endpint>>",
+  "PCheck_AOAI_EMBEDDINGDEPLOYMENTNAME": "<<your embedding deployment name>"
+}
+```
+ 
 - A browser will open showing the swagger interface:
   ![Step01](./media/img/DemoStep01.png)
 - Choose the second option (PUT /policycheck)
